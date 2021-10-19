@@ -100,7 +100,7 @@ export default {
     },
     computed: {
         fullName() {
-            return `${this.selectHero.firstName} ${this.selectedHero.lastName}`;
+            return `${this.selectedHero.firstName} ${this.selectedHero.lastName}` 
         },
     },
     methods: {
