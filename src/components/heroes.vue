@@ -108,7 +108,7 @@ export default {
     },
     methods: {
         async getHeroes() {
-            return new Promise(resolve => {
+            return new Promise((resolve) => {
              setTimeout(() => resolve(ourHeroes), 1500);
             });
         },
