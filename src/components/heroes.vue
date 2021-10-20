@@ -115,7 +115,7 @@ export default {
         async loadHeroes() {
             this.heroes = [];
             this.message ='getting the heroes.please be patient';
-            this.heroes = await this.getheroes();
+            this.heroes = await this.getHeroes();
             this.message = '';
         },
         handleTheCapes(newValue) {
