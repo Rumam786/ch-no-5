@@ -93,17 +93,31 @@ export default {
     name: 'Heroes',
     data() {
         return {
-            heroes: ourHeroes,
+            heroes: [],
             selectedHero: undefined,
             message: '',
         };
     },
     computed: {
         fullName() {
-            return `${this.selectedHero.firstName} ${this.selectedHero.lastName}` 
+            return `${this.selectedHero.firstName} ${this.selectedHero.lastName}`
         },
     },
+    created() {
+        this.loadHeroes();
+    },
     methods: {
+        async getHeroes() {
+            return new Promise(resolve => {
+             setTimeout(() => resolve(ourHeroes), 1500);
+            });
+        },
+        async loadHeroes() {
+            this.heroes = [];
+            this.message ='getting the heroes.please be patient';
+            this.heroes = await this.getheroes();
+            this.message = '';
+        },
         handleTheCapes(newValue) {
             const value = parseInt(newValue, 10);
             switch (value) {
@@ -133,5 +147,5 @@ export default {
             this.selectedHero = hero;
         },
     },
-};
+};    
 </script>
