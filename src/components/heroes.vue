@@ -45,6 +45,14 @@
                             <label class="label" for="description">description</label>
                             <input class="input" id="description" v-model="selectedHero.description" />
                         </div>
+                        <div class="field">
+                            <label class="label" for="capeCounter">cape Counter</label>
+                            <input class="input" id="capeCounter" type="number" v-model="selectedHero.capeCounter" />
+                        </div>
+                        <div class="field">
+                            <label class="label" for="capeMessage">cape Message</label>
+                            <label class="input" name="capeMessage">{{capeMessage}}</label>
+                        </div>
                     </div>
                 </div>
                 <footer class="card-footer">
@@ -68,24 +76,28 @@ const ourHeroes = [{
         id: 10,
         firstName: 'Ella',
         lastName: 'Papa',
+        capeCounter: 1,
         description: 'fashionista',
     },
     {
         id: 20,
         firstName: 'Madelyn',
         lastName: 'Papa',
+        capeCounter: 2,
         description: 'the cat whisperer',
     },
     {
         id: 30,
         firstName: 'Haley',
         lastName: 'Papa',
+        capeCounter: 3,
         description: 'pen wielder',
     },
     {
         id: 40,
         firstName: 'Landon',
         lastName: 'Papa',
+        capeCounter: 4,
         description: 'arc trooper',
     },
 ];
@@ -96,6 +108,7 @@ export default {
             heroes: [],
             selectedHero: undefined,
             message: '',
+            capeMessage:'',
         };
     },
     computed: {
@@ -121,13 +134,13 @@ export default {
         handleTheCapes(newValue) {
             const value = parseInt(newValue, 10);
             switch (value) {
-                case 0:
+                case 1:
                     this.capeMessage = 'Where is my cape?';
                     break;
-                case 1:
+                case 2:
                     this.capeMessage = 'One is all I need';
                     break;
-                case 2:
+                case 3:
                     this.capeMessage = 'Alway have a spare';
                     break;
                 default:
@@ -146,6 +159,15 @@ export default {
         selectHero(hero) {
             this.selectedHero = hero;
         },
+    },
+    watch: {
+         'selectedHero.capeCounter': {
+            immediate: true,
+            handler(newValue, oldValue) {
+                console.log('watcher evaluated. old=${oldValue}, new=${newValue}');
+                this.handleTheCapes(newValue);
+            }
+        }
     },
 };
 </script>
