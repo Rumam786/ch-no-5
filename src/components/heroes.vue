@@ -103,18 +103,18 @@ export default {
             return `${this.selectedHero.firstName} ${this.selectedHero.lastName}`
         },
     },
-    created() {
+    created () {
         this.loadHeroes();
     },
     methods: {
         async getHeroes() {
-            return new Promise((resolve) => {
-             setTimeout(() => resolve(ourHeroes), 1500);
+            return new Promise(resolve => {
+            setTimeout(() => resolve(ourHeroes), 1500);
             });
         },
         async loadHeroes() {
             this.heroes = [];
-            this.message ='getting the heroes.please be patient';
+            this.message = 'getting the heroes,please be patient';
             this.heroes = await this.getHeroes();
             this.message = '';
         },
