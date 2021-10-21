@@ -106,10 +106,10 @@ export default {
     created () {
         this.loadHeroes();
     },
-    methods: {
+    methods:{
         async getHeroes() {
-            return new Promise(resolve => {
-            setTimeout(() => resolve(ourHeroes), 1500);
+            return new Promise(resolve =>{
+                setTimeout(() => resolve(ourHeroes), 1500);
             });
         },
         async loadHeroes() {
@@ -147,5 +147,5 @@ export default {
             this.selectedHero = hero;
         },
     },
-};    
+};
 </script>
