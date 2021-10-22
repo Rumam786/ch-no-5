@@ -45,13 +45,13 @@
                             <label class="label" for="description">description</label>
                             <input class="input" id="description" v-model="selectedHero.description" />
                         </div>
-                        <div class="field">
-                            <label class="label" for="capeCounter">cape Counter</label>
+                         <div class="field">
+                            <label class="label" for="capeCounter">cape counter</label>
                             <input class="input" id="capeCounter" type="number" v-model="selectedHero.capeCounter" />
                         </div>
-                        <div class="field">
-                            <label class="label" for="capeMessage">cape Message</label>
-                            <label class="input" name="capeMessage">{{capeMessage}}</label>
+                         <div class="field">
+                            <label class="label" for="capeMessage">cape message</label>
+                            <label class="input" name="capeMessage">{{capeMessage}}</label>                           
                         </div>
                     </div>
                     <footer class="card-footer">
@@ -67,6 +67,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </template>
 
