@@ -54,21 +54,20 @@
                             <label class="input" name="capeMessage">{{capeMessage}}</label>
                         </div>
                     </div>
+                    <footer class="card-footer">
+                        <button class="link card-footer-item cancel-button" @click="cancelHero()">
+                            <i class="fas fa-undo"></i>
+                            <span>Cancel</span>
+                        </button>
+                        <button class="link card-footer-item" @click="saveHero()">
+                            <i class="fas fa-save"></i>
+                            <span>Save</span>
+                        </button>
+                    </footer>
                 </div>
-                <footer class="card-footer">
-                    <button class="link card-footer-item cancel-button" @click="cancelHero()">
-                        <i class="fas fa-undo"></i>
-                        <span>Cancel</span>
-                    </button>
-                    <button class="link card-footer-item" @click="saveHero()">
-                        <i class="fas fa-save"></i>
-                        <span>Save</span>
-                    </button>
-                </footer>
             </div>
         </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -108,7 +107,7 @@ export default {
             heroes: [],
             selectedHero: undefined,
             message: '',
-            capeMessage:'',
+            capeMessage: '',
         };
     },
     computed: {
@@ -116,12 +115,12 @@ export default {
             return `${this.selectedHero.firstName} ${this.selectedHero.lastName}`
         },
     },
-    created () {
+    created() {
         this.loadHeroes();
     },
-    methods:{
+    methods: {
         async getHeroes() {
-            return new Promise(resolve =>{
+            return new Promise(resolve => {
                 setTimeout(() => resolve(ourHeroes), 1500);
             });
         },
@@ -164,7 +163,7 @@ export default {
          'selectedHero.capeCounter': {
             immediate: true,
             handler(newValue, oldValue) {
-                console.log('watcher evaluated. old=${oldValue}, new=${newValue}');
+                console.log('Watcher evaluated. old=${oldValue}, new=${newValue}');
                 this.handleTheCapes(newValue);
             }
         }
