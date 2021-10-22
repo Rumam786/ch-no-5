@@ -163,7 +163,7 @@ export default {
          'selectedHero.capeCounter': {
             immediate: true,
             handler(newValue, oldValue) {
-                console.log('Watcher evaluated. old=${oldValue}, new=${newValue}');
+                console.log(`Watcher evaluated. old=${oldValue}, new=${newValue}`);
                 this.handleTheCapes(newValue);
             }
         }
